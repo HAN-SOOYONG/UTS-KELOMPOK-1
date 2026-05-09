@@ -14,16 +14,29 @@ Aplikasi ini merupakan mesin validasi kredensial (password) yang menerapkan kebi
 Sistem akan melemparkan `SecurityPolicyException` jika ditemukan pelanggaran terhadap salah satu aturan di atas.
 
 ## TEST
-Untuk Melakukan pengetesan kamu hanya perlu pergi keterminal lalu:
+Untuk Melakukan pengetesan kamu perlu clone dengan cara **open with dekstop** lalu membuat folder test yaitu 
+( **test/java/com/pnb/uts/** ) setelah itu buat file test javanya lalu pergi keterminal dan:
 
 bash
 
 mvn test
+
+## warning
+Jika kamu dengan tidak sengaja mendowload zip dan baru melihat folder ini karena build anda atau pengetestan gagal.
+kamu hanya perlu:
+
+bash
+
+cd advanced-credential-engine 
 
 ## Struktur Proyek:
 * src/main/java: Berisi logika utama aplikasi (AdvancedCredentialEngine.java).
 * pom.xml: Konfigurasi Maven dan dependensi JUnit 5.
 
 ## Kelompok 1 
-1.Brian Bactiar Sitompul
-2.
+1. Brian Bactiar Sitompul
+2. Pande Putu Aby Gotama
+3. I Nyoman Sabda Reka Sahadana
+4. Ibrahim Maulana Arifin
+5. Mario Wahyu Pratama
+6.  Ni Kadek Junya Dwi Lestari
