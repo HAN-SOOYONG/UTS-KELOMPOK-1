@@ -1,5 +1,7 @@
 package com.pnb.uts;
 
+import java.util.Scanner;
+
 public class AdvancedCredentialEngine {
 
     public static class SecurityPolicyException extends RuntimeException {
@@ -47,5 +49,30 @@ public class AdvancedCredentialEngine {
                 throw new SecurityPolicyException("Password cannot contain parts of the user's email.");
             }
         }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        AdvancedCredentialEngine engine = new AdvancedCredentialEngine();
+
+        System.out.println("=== Advanced Credential Engine Tool ===");
+        System.out.println("(Ketik 'exit' pada email untuk keluar)");
+
+        while (true) {
+            System.out.print("\nEmail    : ");
+            String email = sc.nextLine();
+            if (email.equalsIgnoreCase("exit")) break;
+
+            System.out.print("Password : ");
+            String pass = sc.nextLine();
+
+            try {
+                engine.cek(pass, email);
+                System.out.println(">> VALID");
+            } catch (SecurityPolicyException ex) {
+                System.out.println(">> INVALID - " + ex.getMessage());
+            }
+        }
+        sc.close();
     }
 }
