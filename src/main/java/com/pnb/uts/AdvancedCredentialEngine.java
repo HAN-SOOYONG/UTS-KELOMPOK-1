@@ -11,48 +11,48 @@ public class AdvancedCredentialEngine {
     }
 
     public void cek(String s, String e) {
-        // Required input check
+        // Check empty input
         if (s == null || s.trim().isEmpty() || e == null || e.trim().isEmpty()) {
             throw new SecurityPolicyException("Email and Password are required.");
         }
 
-        // Length check (12-20)
+        // Length 12-20
         if (s.length() < 12 || s.length() > 20) {
-            throw new SecurityPolicyException("Length must be 12-20 characters.");
+            throw new SecurityPolicyException("Password length must be 12-20 characters.");
         }
 
-        boolean n = false;
-        boolean h = false;
+        boolean hasNum = false;
+        boolean hasLet = false;
 
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
 
-            // Space check
+            // Block spaces
             if (Character.isWhitespace(c)) {
-                throw new SecurityPolicyException("Spaces are not allowed.");
+                throw new SecurityPolicyException("No spaces allowed.");
             }
 
             if (Character.isDigit(c)) {
-                n = true;
-                // Even index validation
+                hasNum = true;
+                // Digit at even index only
                 if (i % 2 != 0) throw new SecurityPolicyException("Numbers only at even indices.");
             } else if (Character.isLetter(c)) {
-                h = true;
-                // Odd index validation
+                hasLet = true;
+                // Letter at odd index only
                 if (i % 2 == 0) throw new SecurityPolicyException("Letters only at odd indices.");
             } else {
-                // Symbol check
-                throw new SecurityPolicyException("Symbols are not allowed.");
+                // Block symbols
+                throw new SecurityPolicyException("No symbols allowed.");
             }
         }
 
-        // Mix check
-        if (!n || !h) throw new SecurityPolicyException("Must contain letters and numbers.");
+        // Must have both
+        if (!hasNum || !hasLet) throw new SecurityPolicyException("Must contain both letters and numbers.");
 
-        // Email part check
+        // Check email prefix or full username
         String p = e.contains("@") ? e.split("@")[0] : e;
         if (s.toLowerCase().contains(p.toLowerCase())) {
-            throw new SecurityPolicyException("Password contains email parts.");
+            throw new SecurityPolicyException("Password contains parts of email/username.");
         }
     }
 
@@ -65,8 +65,8 @@ public class AdvancedCredentialEngine {
         System.out.println("- 12-20 characters");
         System.out.println("- Even index: Numbers");
         System.out.println("- Odd index: Letters");
-        System.out.println("- No symbols/spaces");
-        System.out.println("- No email parts");
+        System.out.println("- No symbols or spaces");
+        System.out.println("- No email/username parts");
         System.out.println("==================================");
 
         while (true) {
