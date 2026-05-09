@@ -14,20 +14,11 @@ Aplikasi ini merupakan mesin validasi kredensial (password) yang menerapkan kebi
 Sistem akan melemparkan `SecurityPolicyException` jika ditemukan pelanggaran terhadap salah satu aturan di atas.
 
 ## TEST
-Untuk Melakukan pengetesan kamu perlu clone dengan cara **open with dekstop** lalu membuat folder test yaitu 
-( **test/java/com/pnb/uts/** ) setelah itu buat file test javanya lalu pergi keterminal dan:
-
-bash
-
-mvn test
-
-## warning
-Jika kamu dengan tidak sengaja mendowload zip dan baru melihat folder ini karena build anda atau pengetestan gagal.
-kamu hanya perlu:
-
-bash
-
-cd advanced-credential-engine 
+Untuk Melakukan pengetesan kamu perlu clone dengan cara **open with dekstop**  setelah itu buka terminal:
+**bash**
+mvn compile
+dan
+java -cp target/classes com.pnb.uts.AdvancedCredentialEngine
 
 ## Struktur Proyek:
 * src/main/java: Berisi logika utama aplikasi (AdvancedCredentialEngine.java).
