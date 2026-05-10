@@ -13,11 +13,12 @@ Aplikasi ini merupakan mesin validasi kredensial (password) yang menerapkan kebi
 ## Penanganan Kesalahan:
 Sistem akan melemparkan `SecurityPolicyException` jika ditemukan pelanggaran terhadap salah satu aturan di atas.
 
-## TEST
-Untuk Melakukan pengetesan kamu perlu clone dengan cara **open with dekstop**  setelah itu buka terminal:
-**bash**
+## Menjalankan Program
+Ikuti langkah berikut untuk menjalankan program :
+1. Clone project ini ke perangkat lokal
+2. Buka terminal dan masukkan command berikut :
+cd UTS-KELOMPOK-1
 mvn compile
-dan
 java -cp target/classes com.pnb.uts.AdvancedCredentialEngine
 
 ## Struktur Proyek:
